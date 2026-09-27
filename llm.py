@@ -1,10 +1,12 @@
 """Claude API bağlantısı. Tüm ajanlar buradan konuşur, token kullanımı raporlanır."""
 import json
+import os
 import re
 
 from anthropic import Anthropic
 
-_client = Anthropic()  # ANTHROPIC_API_KEY ortam değişkeninden okunur
+# .strip(): kopyalarken gelen gizli boşluk/satır sonlarını temizler
+_client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip(), max_retries=4)
 USAGE = {"input": 0, "output": 0, "calls": 0}
 
 
