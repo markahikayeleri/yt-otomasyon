@@ -1,0 +1,39 @@
+# ===== KANAL AYARLARI =====
+channel_name: "Marka Hikayeleri"
+language: "tr"                 # Başka dil için: en, de, es ...
+language_name: "Turkish"       # Ajanlara verilen dil adı
+wikipedia_langs: ["tr", "en"]  # Kaynak araştırması sırası
+voice: "tr-TR-AhmetNeural"     # Alternatif: tr-TR-EmelNeural
+voice_rate: "+5%"
+timezone: "Europe/Istanbul"
+
+niche: >
+  Business and brand stories: how famous companies (global and Turkish) were founded,
+  how they grew, how some of them collapsed, famous business mistakes, and simple
+  explanations of economic concepts told through real stories.
+  NEVER give investment advice, stock tips or price predictions.
+
+# ===== YAPAY ZEKA =====
+model: "claude-haiku-4-5-20251001"   # Ucuz ve hızlı. Maliyet için docs.claude.com fiyatlarına bakın.
+long_video_words: 1400               # ~9-10 dk anlatım
+seconds_per_image: 9
+# Maliyet raporu için fiyat ($ / 1 milyon token). Güncel fiyat: https://docs.claude.com
+price_input_per_mtok: 1.0
+price_output_per_mtok: 5.0
+shorts_per_day: 2
+
+# ===== GÖRSEL =====
+image_style: >
+  cinematic digital illustration, documentary style, rich colors, dramatic lighting,
+  no text, no letters, no logos, no watermarks
+long_size: [1280, 720]
+short_size: [720, 1280]
+
+# ===== YAYIN SAATLERİ (Türkiye saati) =====
+long_publish_time: "20:00"
+short_publish_times: ["12:30", "18:00"]   # ertesi gün, uzun videoya trafik çeker
+category_id: "27"              # 27 = Eğitim
+ai_disclosure: true            # "Yapay zekâ ile oluşturuldu" etiketi
+
+# ===== TEST MODU =====
+dry_run: true                  # true = video üretir ama YouTube'a yüklemez. Test bitince false yap.
