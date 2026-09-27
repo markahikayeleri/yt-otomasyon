@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   produce:
@@ -30,6 +31,14 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python main.py
+      - name: Raporu gonder
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f output/report.md ]; then
+            gh issue create --title "Gunluk rapor $(TZ=Europe/Istanbul date +%d.%m.%Y)" --body-file output/report.md
+          fi
       - name: Test videolarini indirilebilir yap
         if: always()
         uses: actions/upload-artifact@v4
